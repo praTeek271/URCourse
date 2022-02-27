@@ -28,3 +28,18 @@ class CustomerAccount(models.Model):
         return(f"{self.id}--{self.name} ------------> Status :{self.totacreditpoints}".format(self.id,self.name,self.totacreditpoints))
 
 
+
+class store_courses(models.Model):
+    course_id=models.IntegerField()
+    course_title=models.CharField(max_length=40)
+    url=models.URLField()
+    is_paid=models.BooleanField()
+    price=models.IntegerField()
+    num_subscribers=models.IntegerField()
+    num_reviews=models.IntegerField()
+    num_lectures=models.IntegerField()
+    level=models.CharField(max_length=20)
+    content_duration=models.FloatField()
+    subject=models.CharField(max_length=30)
+    class Meta:
+        db_table='store_courses'

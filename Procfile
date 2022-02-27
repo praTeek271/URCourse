@@ -1,0 +1,1 @@
+web: gunicorn courserecommender.wsgi --log-file -
