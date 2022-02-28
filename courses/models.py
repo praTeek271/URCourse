@@ -10,7 +10,7 @@ class FeedBack(models.Model):
     date=models.DateField()
 
     def __str__(self):
-        return(self.desc)
+        return(f'{self.desc}----{self.date}')
 
 
 class CustomerAccount(models.Model):

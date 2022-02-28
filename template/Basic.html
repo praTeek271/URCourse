@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://kit.fontawesome.com/42d4eb501b.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static './css/style.css' %}">
+    <link rel="icon" href="{% static './assets/LOGO.png' %}"> 
+    {% block head %}{% endblock head %}
+</head>
+<body style="    background-color: #b1e10c66;">
+    <!-- NAVIGATION -->
+    <nav style="position: relative;">
+        {% load static %}
+        <a href="{% url 'homepage' %}">
+            <img src="{% static './assets/LOGO.png' %}" alt=""> <!---LOGO-->
+        </a>
+        <div class="navigation">
+            <ul>
+                <li><a href="{% url 'homepage' %}">Home</a></li>
+                <li><a href="{% url 'aboutme' %}">About</a></li>
+                <li><a href="{% url 'community'%}">Community</a></li>
+                <li><a href="{% url 'coursesdisp' %}">Courses</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="/admin">{% block useRname %}{% endblock useRname %}</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- HOME -->
+{% block body %}{% endblock body %}
+
+
+</body>
+</html>

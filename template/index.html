@@ -1,103 +1,84 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <script src="https://kit.fontawesome.com/42d4eb501b.js" crossorigin="anonymous"></script>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static './css/style.css' %}">
-</head>
-<body>
-    <!-- NAVIGATION -->
-    <nav>
-        {% load static %}
-        <img src="{% static './assets/LOGO.png' %}" alt=""> <!---LOGO-->
-        <div class="navigation">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Courses</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-    <!-- HOME -->
-    <section id="home">
-        <h2>YOUR ONLINE GUIDE FOR THE DAY</h2>
-        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Laboriosam praesentium ipsum quas accusamus nulla sequi 
-        modi quidem magnam a, provident qui ducimus ullam!</P>
-        <div class="btn">
-            <a class="blue" href="#">Learn more </a>
-            <a class="Yellow" href="#">Visit Courses </a>
-        </div>
-    </section>
-    <!-- FEATURE -->
-    <section id="features">
-        <h1>AWSOME FEATURES</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci eaque unde at porro?</p>
-        <div class="fea-base">
-           <div class="fea-box">
-                <i class="fa-solid fa-graduation-cap"></i>
-                <h3>Best free resuorces</h3>
-                <h4>Lorem, ipsum dolor sit amet consectetur adipisicing elit. At culpa minus dolores n</h4>
-           </div> 
-            <div class="fea-box">
-                <i class="fa-solid fa-globe"></i>
-                <h3>Youtube resources</h3>
-                <h4>Lorem, ipsum dolor sit amet consectetur adipisicing elit. At culpa minus dolores n</h4>
-            </div> 
-            <div class="fea-box">
-                <i class="fa-solid fa-certificate"></i>
-                <h3>Certification</h3>
-                <h4>Lorem, ipsum dolor sit amet consectetur adipisicing elit. At culpa minus dolores n</h4>
-            </div> 
-         </div>
-    </section>
+{% extends 'Basic.html' %}
+{% block title %}Brain Tech{% endblock title %}
 
-    <!-- COURSES  -->
-    <section id="course">
-        <h1>AWSOME FEATURES</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error aperiam quos illo. </p>
-        <div class="course-box">
-            <div class="courses">
-                {% load static %}
-                <img src="{% static './assets/TEMP1.jpg' %}" alt="">
-                <div class="details">
-                    <span>12-2-2022</span>
-                    <H6>Python sources</H6>
-                </div>
-                <div class="cost">
-                    Get
-                </div>
+{% block useRname %}{{username}}{% endblock useRname %}
+{% block body %}
+
+<section id="home">
+    <h2>AMBITION IS THE FIRST STEP TOWARDS UR</h2>
+    <h1 style="animation: revert;font-size: 10rem;color: whitesmoke;">UPSKILL</h1>
+    <p>Now Available for Online Coaching</p>
+    <div class="btn">
+        <a class="blue" href="#">Learn more </a>
+        <a class="Yellow" href="{% url 'coursesdisp' %}">Visit Courses </a>
+    </div>
+</section>
+<!-- FEATURE -->
+<section id="features">
+    <h1>AWSOME FEATURES</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci eaque unde at porro?</p>
+    <div class="fea-base">
+       <div class="fea-box">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <h3>Best free resuorces</h3>
+            <h4>Lorem, ipsum dolor sit amet consectetur adipisicing elit. At culpa minus dolores n</h4>
+       </div> 
+        <div class="fea-box">
+            <i class="fa-solid fa-globe"></i>
+            <h3>Youtube resources</h3>
+            <h4>Lorem, ipsum dolor sit amet consectetur adipisicing elit. At culpa minus dolores n</h4>
+        </div> 
+        <div class="fea-box">
+            <i class="fa-solid fa-certificate"></i>
+            <h3>Certification</h3>
+            <h4>Lorem, ipsum dolor sit amet consectetur adipisicing elit. At culpa minus dolores n</h4>
+        </div> 
+     </div>
+</section>
+
+<!-- COURSES  -->
+<section id="course">
+    <h1>AWSOME FEATURES</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error aperiam quos illo. </p>
+    <div class="course-box">
+        <div class="courses">
+            {% load static %}
+            <img src="{% static './assets/TEMP1.jpg' %}" alt="">
+            <div class="details">
+                <span>12-2-2022</span>
+                <H6>Python sources</H6>
             </div>
-            <div class="courses">
-                {% load static %}
-                <img src="{% static './assets/Web-Development.jpg' %}" alt="">
-                <div class="details">
-                    <span>12-2-2022</span>
-                    <H6>Python sources</H6>
-                </div>
-                <div class="cost">
-                    Get
-                </div>
-            </div>
-            <div class="courses">
-                {% load static %}
-                <img src="{% static './assets/How-to-Become-a-Data-Analyst-in-2019-A-Complete-Guide.png' %} " alt="">
-                <div class="details">
-                    <span>12-2-2022</span>
-                    <H6>Python sources</H6>
-                </div>
-                <div class="cost">
-                    Get
-                </div>
+            <div class="cost">
+                Get
             </div>
         </div>
-    </section>
-
-</body>
-</html>
+        <div class="courses">
+            {% load static %}
+            <img src="{% static './assets/Web-Development.jpg' %}" alt="">
+            <div class="details">
+                <span>12-2-2022</span>
+                <H6>Python sources</H6>
+            </div>
+            <div class="cost">
+                Get
+            </div>
+        </div>
+        <div class="courses">
+            {% load static %}
+            <img src="{% static './assets/How-to-Become-a-Data-Analyst-in-2019-A-Complete-Guide.png' %} " alt="">
+            <div class="details">
+                <span>12-2-2022</span>
+                <H6>Python sources</H6>
+            </div>
+            <div class="cost">
+                Get
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+    <br>
+    <br>
+    <br>
+</footer>
+{% endblock body %}
