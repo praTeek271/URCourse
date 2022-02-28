@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-vivy&1q3*ji$1dc50x4wq@v@187=5hc2u1!6%u$mm*x_0$&fp9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['urcourse.herokuapp.com/','127.0.0.1']
+ALLOWED_HOSTS = ['urcourse.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -45,7 +45,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
-    
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
