@@ -1,6 +1,8 @@
 {% extends 'Basic.html' %}
 {% block title %}Brain Tech{% endblock title %}
-
+{% block head%} 
+<script src="https://kit.fontawesome.com/42d4eb501b.js" crossorigin="anonymous"></script>
+{% endblock %}
 {% block useRname %}{{username}}{% endblock useRname %}
 {% block body %}
 
@@ -16,62 +18,62 @@
 <!-- FEATURE -->
 <section id="features">
     <h1>AWSOME FEATURES</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci eaque unde at porro?</p>
+    <p>Explore our feature section to get some amazing content and ideas for your future carrier</p>
     <div class="fea-base">
        <div class="fea-box">
             <i class="fa-solid fa-graduation-cap"></i>
             <h3>Best free resuorces</h3>
-            <h4>Lorem, ipsum dolor sit amet consectetur adipisicing elit. At culpa minus dolores n</h4>
+            <h4>Find the best free resources according to your needs.</h4>
        </div> 
         <div class="fea-box">
             <i class="fa-solid fa-globe"></i>
             <h3>Youtube resources</h3>
-            <h4>Lorem, ipsum dolor sit amet consectetur adipisicing elit. At culpa minus dolores n</h4>
+            <h4>You can find people of similar intrest and can ask your queries there.</h4>
         </div> 
         <div class="fea-box">
             <i class="fa-solid fa-certificate"></i>
             <h3>Certification</h3>
-            <h4>Lorem, ipsum dolor sit amet consectetur adipisicing elit. At culpa minus dolores n</h4>
+            <h4>We find out the best free Certification courses for you.</h4>
         </div> 
      </div>
 </section>
 
 <!-- COURSES  -->
 <section id="course">
-    <h1>AWSOME FEATURES</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error aperiam quos illo. </p>
+    <h1>FIND COURSES</h1>
+    <p>Check out the lastest courses and certification programs according to your intrest</p>
     <div class="course-box">
         <div class="courses">
             {% load static %}
             <img src="{% static './assets/TEMP1.jpg' %}" alt="">
             <div class="details">
-                <span>12-2-2022</span>
+                <span>28-2-2022</span>
                 <H6>Python sources</H6>
             </div>
             <div class="cost">
-                Get
+                <a href="#" style="text-decoration: none; color: white;">Get</a>
             </div>
         </div>
         <div class="courses">
             {% load static %}
             <img src="{% static './assets/Web-Development.jpg' %}" alt="">
             <div class="details">
-                <span>12-2-2022</span>
-                <H6>Python sources</H6>
+                <span>28-2-2022</span>
+                <H6>Web-Development</H6>
             </div>
             <div class="cost">
-                Get
+                <a href="#" style="text-decoration: none; color: white;">Get</a>
             </div>
         </div>
         <div class="courses">
             {% load static %}
             <img src="{% static './assets/How-to-Become-a-Data-Analyst-in-2019-A-Complete-Guide.png' %} " alt="">
             <div class="details">
-                <span>12-2-2022</span>
-                <H6>Python sources</H6>
+                <span>28-2-2022</span>
+                <H6>Data Analyst</H6>
             </div>
             <div class="cost">
-                Get
+                <a href="#" style="text-decoration: none; color: white;">Get</a>
             </div>
         </div>
     </div>

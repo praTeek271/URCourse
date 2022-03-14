@@ -1,6 +1,8 @@
 {% extends 'Basic.html' %}
 {% block title %}Brain Tech{% endblock title %}
-
+{%block head%} 
+<link rel="stylesheet" href="https://discord.com/api/guilds/789008145245536259/widget.json">
+{% endblock head%}
 {% block useRname %}{{username}}{% endblock useRname %}
 {% block body %}
 <iframe 
@@ -15,3 +17,5 @@ width: -webkit-fill-available;
 height: 44rem;">
 </iframe>
 {% endblock %}
+
+

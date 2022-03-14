@@ -23,5 +23,5 @@ class ViewAdmin(ImportExportModelAdmin):
 
 
 #----------------------------------
-# user : Nnikhil Maurya
+# user : Nikhil Maurya
 #password : 12345678
