@@ -1,100 +1,61 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import FeedBack,CustomerAccount,store_courses
+from .models import FeedBack, CustomerAccount, store_courses
 from datetime import datetime
 
-
-# Create your views here.
 def homepage(request):
-
-    Accname=request.user.username
-    parms={'username':Accname}
-    return (render(request, 'index.html',parms))
+    Accname = request.user.username
+    parms = {'username': Accname}
+    return render(request, 'index.html', parms)
 
 def AboutUs(request):
-
-    return(render(request,'aboutus.html'))
+    return render(request, 'aboutus.html')
 
 def feedback(request):
-    if request.method=="POST":
-        name=request.POST.get("name")
-        email=request.POST.get("Email")
-        phone=request.POST.get("phone")
-        desc=request.POST.get("desc")
+    if request.method == "POST":
+        name = request.POST.get("name")
+        email = request.POST.get("Email")
+        phone = request.POST.get("phone")
+        desc = request.POST.get("desc")
         
-        feedback=FeedBackUs(name=name,email=email,phone=phone,desc=desc,date=datetime.now())
+        feedback = FeedBack(name=name, email=email, phone=phone, desc=desc, date=datetime.now())
         feedback.save()
-    Accname=request.user.username
-    
-    parms={'username':Accname}
-    return (render(request,'feedback.html',parms))
-
-
-
+    Accname = request.user.username
+    parms = {'username': Accname}
+    return render(request, 'feedback.html', parms)
 
 def allCourses(request):
-    Accname=request.user.username
-    courses= store_courses.objects.all()
-
-    parms={'username':Accname,'coursedata':courses}
-    return (render(request,'allcourses.html',parms))
+    Accname = request.user.username
+    courses = store_courses.objects.all()
+    courses = courses[:16]
+    parms = {'username': Accname, 'coursedata': courses}
+    return render(request, 'allcourses.html', parms)
 
 def community(request):
-    Accname=request.user.username
-    parms={'username':Accname}
-    return (render(request,'Community.html',parms))
-
-
-# def search(request):
-#     try:    
-#         query = request.GET.get('search')
-#         allCourse = []
-#         catprods = Product.objects.values('subject', 'id')
-#         cats = {item['subject'] for item in catprods}
-#         for cat in cats:
-#             prodtemp = Product.objects.filter(subject=cat)
-#             prod = [item for item in prodtemp if searchMatch(query, item)]
-
-#             n = len(prod)
-#             nSlides = n // 4 + ceil((n / 4) - (n // 4))
-#             if len(prod) != 0:
-#                 allCourse.append([prod, range(1, nSlides), nSlides])
-#         params = {'allCourse': allCourse, "msg": ""}
-#         if len(allCourse) == 0 or len(query)<4:
-#             params = {'msg': "Please make sure to enter relevant search query"}
-#         return render(request, 'shop/search.html', params)
-#     except:
-#         return render(request, 'shop/search.html', params)
-
-
-# def searchMatch(query, item):
-#     '''return true only if query matches the item'''
-#     if query in item.course_title.lower() or query in item.subject.lower():
-#         return True
-#     else:
-#         return False
-
+    Accname = request.user.username
+    parms = {'username': Accname}
+    return render(request, 'Community.html', parms)
 
 def searchpage(request):
-#------------------------------------------------
-    # Accname=request.user.username
-    # query = request.GET.get('search')
-    # allCourse = []
-    # catcorse = store_courses.objects.values('subject', 'course_title')
-    # cats = {item['subject'] for item in catcorse}
-    # for cat in cats:
-    #     prodtemp = store_courses.objects.filter(subject=cat)
-    #     prod = [item for item in prodtemp if searchMatch(query, item)]
+    query = request.GET.get('search')
+    course_found = []
 
-    #     n = len(prod)
-    #     nSlides = n // 4 + ceil((n / 4) - (n // 4))
-    #     if len(prod) != 0:
-    #         allCourse.append([prod, range(1, nSlides), nSlides])
+    if query:
+        course_found = store_courses.objects.filter(course_title__icontains=query)
 
-    # params = {'username':Accname,'allCourse': allCourse, "msg": ""}
-    # if len(allCourse) == 0 or len(query)<4:
-    #     params = {'msg': "Please make sure to enter relevant search query",'username':Accname}
-#--------------------------------------------------
-    Accname=request.user.username
-    parms={'username':Accname}
-    return (render(request,'search.html',parms))
+    Accname = request.user.username
+    parms = {'username': Accname, 'searchdata': course_found}
+    return render(request, 'search.html', parms)
+
+
+def search_courses(request):
+    query = request.GET.get('search')
+    course_found = []
+
+    if query:
+        course_found = store_courses.objects.filter(course_title__icontains=query)
+    if len(course_found) == 0:
+        course_found = store_courses.objects.all()[:16]
+    Accname = request.user.username
+    parms = {'username': Accname, 'coursedata': course_found, 'query': query}
+    return render(request, 'search.html', parms)
